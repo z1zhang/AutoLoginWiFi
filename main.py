@@ -18,7 +18,7 @@ user_headers = {
     "Content-Length": "166"
 }
 user_data = {
-    "DDDDD": ",0,账号@运营商代码",  # eg：,0,541900000000@cmcc
+    "DDDDD": ",0,541900000000@cmcc",  # eg：,0,541900000000@cmcc
     "upass": "账号密码",
     "R1": "0",
     "R2": "0",
@@ -75,7 +75,6 @@ def login():
     res = requests.post(login_url, data=user_data, headers=user_headers)
     msg_data = dict(parse_qs(urlsplit(res.url).query))
     msg = msg_data['ErrorMsg'][0]
-    # print(error_dict[msg])
     soup = BeautifulSoup(res.text, 'lxml')  # 认证成功页
     if soup.title.text == '认证成功页':
         print('连接成功，两秒后退出...')
@@ -86,9 +85,11 @@ def login():
             time.sleep(2)
         else:
             print('AC认证失败')
-    else:
-        print(error_dict[msg] + '，尝试重连')
+    elif msg == 'aW51c2UsIGxvZ2luIGFnYWlu':
         login()
+        print('抢占登录成功')
+    else:
+        print(error_dict[msg])
 
 
 if __name__ == "__main__":
