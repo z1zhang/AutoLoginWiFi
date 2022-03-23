@@ -74,23 +74,23 @@ def login():
     login_url = 'http://10.168.6.10:801/eportal/?c=ACSetting&a=Login&protocol=http:&hostname=10.168.6.10&iTermType=1&wlanuserip=' + get_ip() + '&wlanacip=10.168.6.9&mac=00-00-00-00-00-00&ip=' + get_ip() + '&enAdvert=0&queryACIP=0&loginMethod=1'
     res = requests.post(login_url, data=user_data, headers=user_headers)
     msg_data = dict(parse_qs(urlsplit(res.url).query))
-    msg = msg_data['ErrorMsg'][0]
     soup = BeautifulSoup(res.text, 'lxml')  # 认证成功页
     if soup.title.text == '认证成功页':
         print('连接成功，两秒后退出...')
-        time.sleep(2)
-    elif msg == 'NTEy':
-        if net_status():
-            print('连接成功，两秒后退出...')
-            time.sleep(2)
-        else:
-            print('AC认证失败')
-    elif msg == 'aW51c2UsIGxvZ2luIGFnYWlu':
-        login()
-        print('抢占登录成功')
     else:
-        print(error_dict[msg])
+        msg = msg_data['ErrorMsg'][0]
+        if msg == 'NTEy':
+            if net_status():
+                print('已连接，两秒后退出...')
+            else:
+                print('AC认证失败')
+        # elif msg == 'aW51c2UsIGxvZ2luIGFnYWlu':
+        #     login()
+        #     print('抢占登录成功')
+        else:
+            login()
 
 
 if __name__ == "__main__":
     login()
+    time.sleep(2)
