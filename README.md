@@ -1,5 +1,5 @@
 # POST发送数据包完成校园网认证
-
+## Apple快捷指令请看 [Apple.md](https://github.com/z1zhang/AutoLoginWiFi/blob/master/Apple.md)
 由于处于开发阶段，故可能存在很多缺陷
 
 ✅2022-3-22 添加Apple快捷指令
