@@ -6,6 +6,9 @@ from urllib.parse import parse_qs
 from urllib.parse import urlsplit
 from bs4 import BeautifulSoup
 
+user_account = ''  # 账号
+user_type = ''  # 类型
+user_pwd = ''  # 密码
 user_headers = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
     "Accept-Encoding": "gzip, deflate",
@@ -18,8 +21,8 @@ user_headers = {
     "Content-Length": "166"
 }
 user_data = {
-    "DDDDD": ",0,541900000000@cmcc",  # eg：,0,541900000000@cmcc
-    "upass": "账号密码",
+    "DDDDD": ",0," + user_account + "@" + user_type,  # eg：,0,541900000000@cmcc
+    "upass": user_pwd,
     "R1": "0",
     "R2": "0",
     "R3": "0",
