@@ -39,7 +39,7 @@ python web.py
 https://www.icloud.com/shortcuts/68c0736a7578445eb2b92a5e342efc79
 
 点击链接把快捷指令下载到本地，然后填写账号信息即可
-![img.png](img\img.png)
+![img.png](img/img.png)
 
 ### 客户端自动拨号
 
