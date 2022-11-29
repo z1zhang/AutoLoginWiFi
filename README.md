@@ -60,7 +60,7 @@ rasdial "Dr.COM" 学号@运营商 密码 || %0  #替换此行中的相关信息
 
 若在把校园网拔掉的情况下，命令会进入死等，关闭CMD窗口后会弹出错误窗口，如下图
 
-![img.png](img/alert.png/alert.png)
+![img.png](img/alert.png)
 
 此时需要把bat文件从启动文件夹内移除，然后从任务管理器中结束该进程/重启即可
 
